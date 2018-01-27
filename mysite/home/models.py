@@ -20,7 +20,7 @@ class TA(models.Model):
 
 class Course(models.Model):
 	#has identifying code/name and list of TA's for the course
-	courseName = models.CharField(max_length=20)
+	courseNum = models.CharField(max_length=20)
 	courseCode = models.CharField(max_length=20)
 	#courseTas = models.ForeignKey(TA)
 	courseTAs = models.ManyToManyField(TA)
@@ -42,7 +42,7 @@ class TAForm(ModelForm):
 class CourseForm(ModelForm):
 	class Meta:
 		model = Course
-		fields = ['courseName', 'courseCode', 'courseTAs']
+		fields = ['courseNum', 'courseCode', 'courseTAs']
 
 class StudentForm(ModelForm):
 	class Meta:
