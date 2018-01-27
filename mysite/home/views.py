@@ -62,8 +62,7 @@ def talogin(request):
 			student_id = form.cleaned_data['student_id']
 			passcode = form.cleaned_data['passcode']
 
-			if TA.objects.filter(taID=student_id).exists():
-				if 
+			if TA.objects.filter(taID=student_id).exists(): 
 				return HttpResponseRedirect('/dash')
 			else:
 				print("Invalid")
