@@ -45,3 +45,8 @@ form{
 	width: 60%;
 	align-content: center;
 }
+
+.center{
+	margin: 0 auto;
+	display: block;
+}
