@@ -6,4 +6,5 @@ urlpatterns = [
 	url(r'^CMSC[0-9]+$', views.submit, name='submit'),
 	url(r'dash$', views.tadash, name='tadash'),
 	url(r'queue$', views.queue, name='queue'),
+	url(r'login$', views.talogin, name='talogin'),
 	]
