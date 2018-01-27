@@ -4,27 +4,36 @@
 {%load staticfiles%}
 
 <div class = "container">
-			<h1 class = "text-center">Choose Class</h1>
-			<div class = "top20"></div>
-			<a href = "/CMSC334">
-				<button type="button" class="btn btn-neutral coursenum center">
-					<h1>CMSC 334 - Available</h1>
-				</button>
-			</a>
+	<h1 class = "text-center">Choose Class</h1>
+	<div class = "top20"></div>
+	<!--<a href = "/CMSC334">
+		<button type="button" class="btn btn-neutral coursenum center">
+			<h1>CMSC 334 - Available</h1>
+		</button>
+	</a>
 
-			<div class = "top20"></div>
-			<a href = "/CMSC341">
-				<button type="button" class="btn btn-neutral coursenum center">
-					<h1>CMSC 341 - Available</h1>
-				</button>
-			</a>
+	<div class = "top20"></div>
+	<a href = "/CMSC341">
+		<button type="button" class="btn btn-neutral coursenum center">
+			<h1>CMSC 341 - Available</h1>
+		</button>
+	</a>
 
-			<div class = "top20"></div>
-			<button type="button" class="btn btn-neutral coursenum center">
-				<h1>CMSC 334 - Available</h1>
-			</button>
-
-
+	<div class = "top20"></div>
+	<button type="button" class="btn btn-neutral coursenum center">
+		<h1>CMSC 334 - Available</h1>
+	</button>
+	-->
+	
+	{% for class in classes %}
+	<div class = "top20"></div>
+	<a href = "/CMSC{{class.courseName}}">
+		<button type="button" class="btn btn-neutral coursenum center">
+		<h1>{{class.courseName}}</h1>
+		</button>
+	</a>
+	{%endfor%}
+		
 </div>
 
 {%endblock%}

@@ -1,9 +1,12 @@
 from django.shortcuts import render, HttpResponseRedirect
 from .forms import helpForm, taLogin
+from .models import Course
 
 # Create your views here.
 def index(request):
-	return render(request, 'home/index.html')
+	classes = Course.objects.all()
+	
+	return render(request, 'home/index.html', {'classes': classes})
 
 def submit(request):
 	if request.method == 'POST':

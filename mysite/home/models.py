@@ -13,7 +13,7 @@ class TA(models.Model):
 	taID = models.CharField(max_length=20)
 	taCode = models.CharField(max_length=20)
 	taName = models.CharField(max_length=30)
-	currentStudent = models.CharField(max_length=30)
+	currentStudent = models.CharField(max_length=30, default='')
 	#taCourses = models.ForeignKey(Course)
 	#taCourses = models.ManyToManyField(Course)
 
