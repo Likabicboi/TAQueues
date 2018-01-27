@@ -4,9 +4,10 @@
 {%load staticfiles%}
 
 <div class = "container">
+	<h2>Welcome to the CMSC {{course.courseNum}} TA Queue</h2>
 	<div class = "row">
 		<div class = "col-lg-7">
-			<h2> Available TAs: (0/5) </h2>
+			<h2> Available TAs:  </h2>
 		</div>
 		<div class = "col-lg-5">
 			<h2> Students Queue: 0 </h2>
@@ -15,7 +16,7 @@
 
 	<div class = "row">
 		<div class = "col">
-			<form class = "top50 bottom50 method = "post">
+			<form class = "top50 bottom50" method = "post">
 				{% csrf_token %}
 				{{ form }}
 			  <button type="submit" class="btn btn-success btn-lg top50">Submit</button>
