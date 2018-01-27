@@ -26,8 +26,13 @@ class Course(models.Model):
 	#availableTAs = models.ManyToManyField(TA)
 
 class Queue(models.Model):
+<<<<<<< Updated upstream
 	#has TA, course and student
 	queueSize = models.IntegerField(default=0, blank = True,  null = True)
+=======
+	#contains students
+	queueSize = models.PositiveIntegerField(default=0)
+>>>>>>> Stashed changes
 	#ta = models.ManyToManyField(TA)
 	students = models.ForeignKey(Student, on_delete=models.CASCADE)
 
