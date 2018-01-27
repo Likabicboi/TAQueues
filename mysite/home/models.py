@@ -1,4 +1,5 @@
 from django.db import models
+from djnago.forms import ModelForm
 
 class TA(models.Model):
 	#Properties of TA and the courses they teach
@@ -26,3 +27,26 @@ class Queue(models.Model):
 	queueSize = models.IntegerField()
 	ta = models.ManyToManyField(TA)
 	students = models.ForeignKey(Student, on_delete=models.CASCADE)
+
+#Forms for each database created (possibly irrelevant)
+
+"""class TAForm(ModelForm):
+	class Meta:
+		model = TA
+		fields = ['taID', 'taCode']
+
+class CourseForm(ModelForm):
+	class Meta:
+		model = Course
+		fields = ['courseName', 'courseCode', 'courseTAs']
+
+class StudentForm(ModelForm):
+	class Meta:
+		model = student
+		field = ['studentName', 'studentID', 'studentEmail', 'studentPhone']
+
+class QueueForm(ModelForm):
+	class Meta:
+		model = Queue
+		fields = ['queueSize', 'ta', 'students']"""
+
