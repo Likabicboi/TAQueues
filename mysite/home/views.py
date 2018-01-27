@@ -59,7 +59,15 @@ def talogin(request):
 	if request.method == 'POST':
 		form = taLogin(request.POST)
 		if form.is_valid():
-			return HttpResponseRedirect('/dash')
+			student_id = form.cleaned_data['student_id']
+			passcode = form.cleaned_data['passcode']
+
+			if TA.objects.filter(taID=student_id).exists():
+				if 
+				return HttpResponseRedirect('/dash')
+			else:
+				print("Invalid")
+			
 	else:
 		form = taLogin()
 		
