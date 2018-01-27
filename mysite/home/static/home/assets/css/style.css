@@ -1,0 +1,47 @@
+.top10{
+	margin-top: 10px;
+}
+.top20{
+	margin-top: 20px;
+}
+.top30{
+	margin-top: 30px;
+}
+.top40{
+	margin-top: 40px;
+}
+.top50{
+	margin-top: 50px;
+}
+.bottom10{
+	margin-bottom: 10px;
+}
+.bottom20{
+	margin-bottom: 20px;
+}
+.bottom30{
+	margin-bottom: 30px;
+}
+.bottom40{
+	margin-bottom: 40px;
+}
+.bottom50{
+	margin-bottom: 50px;
+}
+
+button > h1 {
+	margin: 0;
+	font-size: 25px;
+}
+
+form{
+	border: 1px solid #c6c6c6;
+	border-radius: 5px;
+	padding: 20px;
+}
+.coursenum{
+	border: 2px solid #4CAF50;
+	display: block;
+	width: 60%;
+	align-content: center;
+}
