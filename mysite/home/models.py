@@ -27,7 +27,7 @@ class Course(models.Model):
 
 class Queue(models.Model):
 	#has TA, course and student
-	queueSize = models.NumberField(default=0)
+	queueSize = models.IntegerField(default=0, blank = True,  null = True)
 	#ta = models.ManyToManyField(TA)
 	students = models.ForeignKey(Student, on_delete=models.CASCADE)
 
