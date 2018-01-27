@@ -4,4 +4,5 @@ from . import views
 urlpatterns = [
 	url(r'^$', views.index, name='index'),
 	url(r'^CMSC[0-9]+$', views.submit, name='submit'),
+	url(r'TALogin$', views.login, name='login'),
 	]

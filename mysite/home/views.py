@@ -6,3 +6,6 @@ def index(request):
 
 def submit(request):
 	return render(request, 'home/submit.html')
+
+def login(request):
+	return render(request, 'home/TAlogin.html')
