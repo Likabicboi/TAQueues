@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
 from .forms import helpForm, taLogin
-from .models import Course
+from .models import Course, Student
 
 # Create your views here.
 def index(request):
@@ -12,6 +12,8 @@ def submit(request):
 	if request.method == 'POST':
 		form = helpForm(request.POST)
 		if form.is_valid():
+			print("Hello")
+			form.save()
 			return HttpResponseRedirect('/queue')
 
     # if a GET (or any other method) we'll create a blank form

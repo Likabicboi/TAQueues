@@ -5,6 +5,7 @@ class Student(models.Model):
 	#has identifying properties so they can be contacted
 	studentName = models.CharField(max_length=30)
 	studentID = models.CharField(max_length=20)
+	studentIssue = models.CharField(max_length=200, default = "")
 	studentEmail = models.CharField(max_length=50)
 	studentPhone= models.CharField(max_length=20)
 
