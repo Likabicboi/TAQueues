@@ -1,0 +1,63 @@
+{%extends "home/header.html"%}
+
+{%block content%}
+{%load staticfiles%}
+
+<div class = "container">
+	<div class = "row">
+		<div class = "col-lg-7">
+			<h2> Available TAs: (0/5) </h2>
+		</div>
+		<div class = "col-lg-5">
+			<h2> Students Queue: 0 </h2>
+		</div>
+	</div>
+
+	<div class = "row">
+		<div class = "col">
+			<form class = "top50">
+			  <div class="form-group">
+			    <label for="Name">Name</label>
+			    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+			  </div>
+
+				<div class="form-group">
+			    <label for="Name">Issue</label>
+			    <textarea class="form-control" maxlength = "200" rows="4" placeholder="Describe what your problem is (Limit to 2 sentences)"></textarea>
+			  </div>
+
+
+			  <div class="form-group">
+			    <label for="StudentID">Student ID</label>
+			    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Student ID">
+			  </div>
+
+			  <div class = "row">
+				  <div class = "col-md-6">
+					  <div class="form-group">
+					    <label for="Phone Number">Phone Number</label>
+					    <input type="tel" class="form-control" id="exampleInputPassword1" placeholder="###-###-####">
+					  </div>
+					 </div>	
+
+					<div class =  "col-md-6">
+						<div class="form-group">
+					    <label for="exampleInputPassword1">Email</label>
+					    <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Email">
+					  </div>
+					</div>
+				</div>	
+
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">Course Passcode</label>
+			    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Passcode">
+			  </div>
+
+
+			  <button type="submit" class="btn btn-success btn-lg top50">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+{%endblock%}
