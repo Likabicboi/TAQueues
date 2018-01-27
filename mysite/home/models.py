@@ -18,10 +18,7 @@ class TA(models.Model): #Courses taught + need mulitple fucntionality
 	taID = models.CharField(max_length=20)
 	taCode = models.CharField(max_length=20)
 	taName = models.CharField(max_length=30)
-<<<<<<< Updated upstream
-	currentStudent = models.CharField(max_length=30, default='')
-	#taCourses = models.ForeignKey(Course)
-=======
+	#currentStudent = models.CharField(max_length=30, default='')
 	currentStudent = models.CharField(max_length=30, null = True, blank = True)
 	taCourses = []
 
@@ -34,32 +31,36 @@ class TA(models.Model): #Courses taught + need mulitple fucntionality
 	def removeTACourse(courseDropping):
 		taCourses.remove(courseDropping)
 
->>>>>>> Stashed changes
 	#taCourses = models.ManyToManyField(Course)
+
+class Queue(models.Model):
+	#has TA, course and student
+	queueSize = models.IntegerField(default=0, blank = True,  null = True)
+	students = models.ForeignKey(Student, null = True, blank = True, on_delete=models.CASCADE)
+
+	"""def __str__(self):
+		return "Queue for: " % course"""
+	def addtoQueue(x):
+		students.append(x)
+	def deQueue():
+		return students.pop(0)
+
 
 class Course(models.Model):
 	#has identifying code/name and list of TA's for the course
 	courseNum = models.CharField(max_length=20)
 	courseCode = models.CharField(max_length=20)
 	courseTAs = models.ManyToManyField(TA)
-
+	queue = models.ManyToManyField(Queue)
 	def __str__(self):
-		return self.courseName
+		return self.courseNum
 	#courseTas = models.ForeignKey(TA)
 	#availableTAs = models.ManyToManyField(TA)
 
-class Queue(models.Model):
-	#has TA, course and student
-	queueSize = models.IntegerField(default=0, blank = True,  null = True)
-	course = models.ManyToManyField(Course)
-	students = models.ForeignKey(Student, on_delete=models.CASCADE)
-
-	def __str__(self):
-		return "Queue for: " % course
 
 #Forms for each database created (possibly irrelevant)
 
-class TAForm(ModelForm):
+"""class TAForm(ModelForm):
 	class Meta:
 		model = TA
 		fields = ['taID', 'taCode', 'taName', 'currentStudent']
@@ -67,16 +68,16 @@ class TAForm(ModelForm):
 class CourseForm(ModelForm):
 	class Meta:
 		model = Course
-		fields = ['courseNum', 'courseCode', 'courseTAs']
+		fields = ['courseNum', 'courseCode', 'courseTAs', 'queue']
 
 class StudentForm(ModelForm):
 	class Meta:
 		model = Student
-		fields = ['studentName', 'studentID', 'studentEmail', 'studentPhone']
+		fields = ['studentName', 'studentID', 'studentIssue', 'studentEmail', 'studentPhone']
 
 class QueueForm(ModelForm):
 	class Meta:
 		model = Queue
-		fields = ['queueSize', 'course', 'students']
+		fields = ['queueSize', 'students']"""
 
 		
