@@ -17,8 +17,19 @@
 	<div class = "row">
 		<div class = "col">
 			<form class = "top50 bottom50" method = "post">
+				<div class="col-xs-12">
+					{% if messages%}
+					{% for message in messages %}
+					<div class="alert alert-danger" role="alert">
+						<center>{{ message }}</center>
+					</div>
+					{% endfor %}
+					{% endif %}
+				</div>
+
 				{% csrf_token %}
 				{{ form }}
+
 			  <button type="submit" class="btn btn-success btn-lg top50">Submit</button>
 			</form>
 		</div>

@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from .forms import helpForm, taLogin
 from .models import Course, Student
 from django.http import Http404
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -27,14 +28,17 @@ def submit(request, oid):
 			email = form.cleaned_data['email']
 			number = form.cleaned_data['number']
 			passcode = form.cleaned_data['passcode']
-			s = Student(studentName = name, studentID = student_id, studentIssue = issue, studentEmail = email, studentPhone = number)
-			
-			s.save()
-			
-			return HttpResponseRedirect('/queue/'+student_id)
 
+			# Checks if the course's code matches that of the passcode given
+			if currentCourse.courseCode == passcode:
+				s = Student(studentName = name, studentID = student_id, studentIssue = issue, studentEmail = email, studentPhone = number)
+				s.save()
+				return HttpResponseRedirect('/queue/'+student_id)
+			else:
+				form = helpForm()
+				messages.error(request, 'Invalid class code.')
 
-    # if a GET (or any other method) we'll create a blank form
+  # if a GET (or any other method) we'll create a blank form
 	else:
 		form = helpForm()
 
