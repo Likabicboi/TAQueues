@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
 from .forms import helpForm, taLogin
-from .models import Course, Student
+from .models import Course, Student, TA
 from django.http import Http404
 from django.contrib import messages
 
@@ -56,21 +56,31 @@ def queue(request, id):
 		raise Http404
 	return render(request, 'home/queue.html', {'student': current})
 
-def tadash(request):
-	return render(request, 'home/tadash.html')
+def tadash(request, tid):
+	current = None
+	for ta in TA.objects.all():
+		if tid == ta.taEmail:
+			current = ta
+			break
+
+	args = {'ta':current}
+	
+
+	return render(request, 'home/tadash.html', args)
 	
 def talogin(request):
 	if request.method == 'POST':
 		form = taLogin(request.POST)
 		if form.is_valid():
-			student_id = form.cleaned_data['student_id']
+			email = form.cleaned_data['email']
 			passcode = form.cleaned_data['passcode']
 
-			if TA.objects.filter(taID=student_id).exists(): 
-				return HttpResponseRedirect('/dash')
-			else:
-				print("Invalid")
-			
+			for ta in TA.objects.all():
+				if email == ta.taEmail:
+					if passcode == ta.taCode:
+						return HttpResponseRedirect('/dash/'+email)
+					else:
+						messages.error(request, 'Invalid password. Try again.')
 	else:
 		form = taLogin()
 		

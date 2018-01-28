@@ -15,5 +15,5 @@ class helpForm(forms.Form):
 	
 	
 class taLogin(forms.Form):
-	student_id = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Student ID'}))
+	email = forms.EmailField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'School Email'}))
 	passcode = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Passcode'}))

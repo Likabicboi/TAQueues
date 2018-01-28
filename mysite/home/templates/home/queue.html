@@ -3,7 +3,9 @@
 {%block content%}
 {%load staticfiles%}
 
-<h1 class = "text-center">Thanks for submitting, {{student.studentName}}</h1>
-<p class = "text-center top40">An email has been sent to {{student.studentEmail}} confirming your position</p>
+<h4 class = "text-center">Thanks for submitting, {{student.studentName}}</h1>
+<p class = "text-center top20">An email has been sent to {{student.studentEmail}} confirming your position</p>
+<h2 class = "text-center top20">You are number <span class="red">0</span> in the queue </h4>
+<h3 id="demo" class = "text-center top20"></h3>
 
 {%endblock%}
